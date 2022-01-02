@@ -1,0 +1,44 @@
+{
+  "name": "stansz-empty-page-cli",
+  "version": "1.0.0",
+  "description": "Command line tool will generate empty page(s) for defined file format.",
+  "author": "Stefan Schultz (Schultz Software)",
+  "license": "UNLICENSED",
+  "main": "./src/main.js",
+  "bin": "./src/main.js",
+  "scripts": {
+    "start": "node .",
+    "start-test": "clear && node . -un px -pw 1024 -ph 512 -ff png",
+    "start-docx": "clear && node ./src/main.js -d -un mm -pw 210 -ph 297 -po l -ff docx",
+    "start-pdf": "clear && node ./src/main.js -d -un mm -pw 210 -ph 297 -po l -ff pdf",
+    "start-png": "clear && node ./src/main.js -d -un px -pw 1024 -ph 512 -ff png",
+    "start-jpeg-1": "clear && node ./src/main.js -d -un px -pw 1024 -ph 512 -ff jpeg",
+    "start-jpeg-2": "clear && node ./src/main.js -d -un px -pw 1024 -ph 512 -po p -ff jpeg -op \"./empty_page/\" -fn mydocument",
+    "pack-pkg": "clear && pkg --output ./dist/emptypage --compress GZip ./package.json"
+  },
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "docx": "^7.3.0",
+    "pdfkit": "^0.13.0",
+    "pngjs": "^6.0.0"
+  },
+  "pkg": {
+    "scripts": [
+      "src/**/*.js",
+      "src/constants/**/*.js",
+      "src/core/**/*.js",
+      "src/models/**/*.js",
+      "src/terminals/**/*.js"
+    ],
+    "assets": [
+      "node_modules/**/*",
+      "src/**/*"
+    ],
+    "targets": [
+      "node14-macos-x64"
+    ],
+    "outputPath": "dist"
+  }
+}
