@@ -43,7 +43,7 @@ const convertPointToMillimeter = function convertPointToMillimeter(pt) {
  * @param {*} inch 
  * @returns 
  */
- const convertInchToPoint = function convertMillimeterToPoint(inch) {
+ const convertInchToPoint = function convertInchToPoint(inch) {
   return inch * inchToPoint;
 }
 
@@ -84,7 +84,7 @@ const convertPointToPixel = function convertPointToPixel(pt) {
  * @param {*} value 
  * @returns 
  */
-const calculateWidthOrHeightByPointUnit = function calculateWidthByPointUnit(unit, value) {
+const calculateWidthOrHeightByPointUnit = function calculateWidthOrHeightByPointUnit(unit, value) {
   let result = 1;
 
   if (units_constants.mm === unit) { // millimeter to point
